@@ -81,7 +81,9 @@
 
 Видео работы модели
 
-https://user-images.githubusercontent.com/94855641/205352004-593f73a0-8892-4fad-8151-5a09e5b6617e.mov
+
+https://user-images.githubusercontent.com/94855641/205381619-83ccc7c2-b877-4f33-960e-49d68c665e87.mov
+
 
 
 # Выводы
