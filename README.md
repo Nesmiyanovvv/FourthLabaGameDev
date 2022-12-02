@@ -82,7 +82,11 @@
 Видео работы модели
 
 
-https://user-images.githubusercontent.com/94855641/205381619-83ccc7c2-b877-4f33-960e-49d68c665e87.mov
+
+
+
+https://user-images.githubusercontent.com/94855641/205382559-e5c13465-e30f-4386-8a5f-6023e1b749b5.mov
+
 
 
 
