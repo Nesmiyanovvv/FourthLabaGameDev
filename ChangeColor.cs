@@ -4,18 +4,11 @@ using UnityEngine;
 
 public class ChangeColor : MonoBehaviour
 {
-    public Material ZeroMaterial;
-    public Material OneMaterial;
+    public Material False;
+    public Material True;
+    public Collider ResultCube;
     
     private readonly List<Collider> _cubes = new();
-
-    private readonly double[] _weights =
-    {
-        1.73263871669769,
-        1.72908890247345
-    };
-
-    private readonly double _bias = -0.909411787986755;
     
     private void OnTriggerEnter(Collider other)
     {
@@ -24,17 +17,26 @@ public class ChangeColor : MonoBehaviour
         if (_cubes.Count != 2)
             return;
 
-        gameObject.GetComponent<Renderer>().material = DotProductBias() > 0 ? OneMaterial : ZeroMaterial;
+        ResultCube
+            .gameObject
+            .GetComponent<Renderer>()
+            .material = DotProductBias() > 0 ? True : False;
     }
 
     private double DotProductBias()
     {
-        var d = _cubes.Select((e, i) =>
-        {
-            var col = e.gameObject.GetComponent<Renderer>().material.color == OneMaterial.color ? 1 : 0;
-            return col * _weights[i];
-        }).Sum();
+        var w = new[] {
+            0.9300813312530518,
+            1.84646213054657
+        };
+
+        const double b = -2.7456431686782;
+
+        var d = 0.0;
+
+        for (var i = 0; i < _cubes.Count; i++)
+            d += (_cubes[i].gameObject.GetComponent<Renderer>().material.color == False.color ? 0 : 1) * w[i];
         
-        return d + _bias;
+        return d + b;
     }
 }
